@@ -1,6 +1,6 @@
 {
   "name": "radio-sai-alexa-skill",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "An audio player sample skill.",
   "main": "index.js",
   "scripts": {
@@ -14,7 +14,9 @@
   "author": "Amazon.com",
   "license": "See license in ../LICENSE.txt",
   "dependencies": {
-    "alexa-sdk": "^1.0.4"
+    "ask-sdk": "2.10.0",
+    "i18next": "11.8.0",
+    "i18next-sprintf-postprocessor": "0.2.2"
   },
   "repository" : {
     "type" : "git",

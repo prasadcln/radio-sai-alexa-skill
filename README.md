@@ -1,13 +1,13 @@
-# RadioSai Audio Player Project
+# Audio Player Sample Project
 
-The Alexa Skills Kit now allows developers to build skills that play long-form audio content on Alexa devices.  This project uses the sample project provided by Amazon to demonstrates how to use the new interfaces for triggering playback of audio and handling audio player input events.
+The Alexa Skills Kit now allows developers to build skills that play long-form audio content on Alexa devices.  This sample project demonstrates how to use the new interfaces for triggering playback of audio and handling audio player input events.
 
 ## How to Run the Sample
 
 1. Clone the project and package the skill:
 ```bash
-git clone https://github.com/prasadcln/radio-sai-alexa-skill.git
-cd radio-sai-alexa-skill/js
+git clone https://github.com/alexa/skill-sample-nodejs-audio-player.git
+cd skill-sample-nodejs-audio-player/js
 npm install
 zip -r ../audio-player.zip *
 ```

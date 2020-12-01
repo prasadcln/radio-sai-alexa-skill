@@ -1,28 +1,19 @@
 {
   "intents": [
     {
-      "intent": "PlayBhajanStream"
-    },
-    {
-      "intent": "PlayDiscourseStream"
-    },
-    {
-      "intent": "PlayAsiaStream"
-    },
-    {
-      "intent": "PlayAmeriStream"
-    },
-    {
-      "intent": "PlayAfriStream"
-    },
-    {
-      "intent": "PlayTeluguStream"
+      "intent": "PlayAudio"
     },
     {
       "intent": "AMAZON.PauseIntent"
     },
     {
       "intent": "AMAZON.ResumeIntent"
+    },
+    {
+      "intent": "AMAZON.NextIntent"
+    },
+    {
+      "intent": "AMAZON.PreviousIntent"
     },
     {
       "intent": "AMAZON.HelpIntent"
@@ -32,6 +23,9 @@
     },
     {
       "intent": "AMAZON.CancelIntent"
+    },
+    {
+      "intent": "AMAZON.StartOverIntent"
     },
     {
       "intent": "AMAZON.YesIntent"

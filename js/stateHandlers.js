@@ -13,59 +13,67 @@ var stateHandlers = {
             //  Change state to START_MODE
             this.handler.state = constants.states.START_MODE;
 
-            var message = 'Welcome to Radio Sai. What stream would you like to play?  You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
-            var reprompt = 'You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
+            var message = ‘WELCOME_MESSAGE’;
+            var reprompt = ‘REPROMPT’;
 
             console.log("Executing Start Mode intent handler for LaunchRequest");
             this.response.speak(message).listen(reprompt);
             this.emit(':responseReady');
         },
         'PlayBhajanStream' : function () {
+			var message = 'BHAJAN_STREAM_MESSAGE';
+            this.response.speak(message);
             this.attributes['stream'] = 'BhajanStream';
             controller.play.call(this);
         },
         'PlayDiscourseStream' : function () {
+			var message = 'DISCOURSE_STREAM_MESSAGE';
+            this.response.speak(message);
             this.attributes['stream'] = 'DiscourseStream';
             controller.play.call(this);
         },
         'PlayAsiaStream' : function () {
+			var message = 'ASIA_STREAM_MESSAGE';
+            this.response.speak(message);
             this.attributes['stream'] = 'AsiaStream';
             controller.play.call(this);
         },
         'PlayAmeriStream' : function () {
+			var message = 'AMERI_STREAM_MESSAGE';
+            this.response.speak(message);
             this.attributes['stream'] = 'AmeriStream';
             controller.play.call(this);
         },
         'PlayAfriStream' : function () {
+			var message = 'AFRI_STREAM_MESSAGE';
+            this.response.speak(message);
             this.attributes['stream'] = 'AfriStream';
             controller.play.call(this);
         },
         'PlayTeluguStream' : function () {
+			var message = 'TELUGU_STREAM_MESSAGE';
+            this.response.speak(message);
             this.attributes['stream'] = 'TeluguStream';
             controller.play.call(this);
         },
+
+        'AMAZON.PauseIntent' : function () { controller.stop.call(this) },
+        'AMAZON.StopIntent' : function () { controller.stop.call(this); var message = 'STOP_MESSAGE'; this.response.speak(message); this.emit(':responseReady'); },
+        'AMAZON.CancelIntent' : function () { controller.stop.call(this); var message = 'STOP_MESSAGE'; this.response.speak(message); this.emit(':responseReady'); },
+        'AMAZON.ResumeIntent' : function () { controller.play.call(this) },
+
         'AMAZON.HelpIntent' : function () {
-          var message = 'Welcome to Radio Sai. What stream would you like to play?  You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
-          var reprompt = 'You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
+          var message = 'HELP_MESSAGE';
+          var reprompt = ‘REPROMPT’;
           console.log("Executing start mode intent handler for help request");
             this.response.speak(message).listen(reprompt);
-            this.emit(':responseReady');
-        },
-        'AMAZON.StopIntent' : function () {
-            var message = 'Good bye.';
-            this.response.speak(message);
-            this.emit(':responseReady');
-        },
-        'AMAZON.CancelIntent' : function () {
-            var message = 'Good bye.';
-            this.response.speak(message);
             this.emit(':responseReady');
         },
         'SessionEndedRequest' : function () {
             // No session ended logic
         },
         'Unhandled' : function () {
-            var message = 'Sorry, I could not understand. Please say the stream you would like to play. You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
+            var message = 'ERROR_MESSAGE';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
         }
@@ -77,44 +85,57 @@ var stateHandlers = {
         'LaunchRequest' : function () {
           this.handler.state = constants.states.PLAY_MODE;
 
-          var message = 'Welcome to Radio Sai. What stream would you like to play?  You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
+          var message = 'HELP_MESSAGE';
           var reprompt = 'You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
           console.log("Executing play mode intent handler for launch request");
           this.response.speak(message).listen(reprompt);
           this.emit(':responseReady');
         },
         'PlayBhajanStream' : function () {
+			var message = 'BHAJAN_STREAM_MESSAGE';
+            this.response.speak(message);
             this.attributes['stream'] = 'BhajanStream';
             controller.play.call(this)
         },
         'PlayDiscourseStream' : function () {
+			var message = 'DISCOURSE_STREAM_MESSAGE';
+            this.response.speak(message);
               this.attributes['stream'] = 'DiscourseStream';
               controller.play.call(this);
         },
         'PlayAsiaStream' : function () {
+			var message = 'ASIA_STREAM_MESSAGE';
+            this.response.speak(message);
               this.attributes['stream'] = 'AsiaStream';
               controller.play.call(this);
         },
         'PlayAmeriStream' : function () {
+			var message = '';
+            this.response.speak(message);
               this.attributes['stream'] = 'AmeriStream';
               controller.play.call(this);
         },
         'PlayAfriStream' : function () {
+			var message = 'AFRI_STREAM_MESSAGE';
+            this.response.speak(message);
               this.attributes['stream'] = 'AfriStream';
               controller.play.call(this);
         },
         'PlayTeluguStream' : function () {
+			var message = 'TELUGU_STREAM_MESSAGE';
+            this.response.speak(message);
               this.attributes['stream'] = 'TeluguStream';
               controller.play.call(this);
         },
+
         'AMAZON.PauseIntent' : function () { controller.stop.call(this) },
-        'AMAZON.StopIntent' : function () { controller.stop.call(this) },
-        'AMAZON.CancelIntent' : function () { controller.stop.call(this) },
+        'AMAZON.StopIntent' : function () { controller.stop.call(this); var message = 'STOP_MESSAGE'; this.response.speak(message); this.emit(':responseReady'); },
+        'AMAZON.CancelIntent' : function () { controller.stop.call(this); var message = 'STOP_MESSAGE'; this.response.speak(message); this.emit(':responseReady'); },
         'AMAZON.ResumeIntent' : function () { controller.play.call(this) },
+
         'AMAZON.HelpIntent' : function () {
             // This will called while audio is playing and a user says "ask <invocation_name> for help"
-            var message = 'You are listening to Radio Sai. You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream.  ' +
-                'At any time, you can say Pause to pause the audio and Resume to resume.';
+            var message = 'HELP_ON_PLAY_MESSAGE';
             console.log("Executing play mode intent handler for help request");
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
@@ -123,7 +144,7 @@ var stateHandlers = {
             // No session ended logic
         },
         'Unhandled' : function () {
-            var message = 'Sorry, I could not understand. Please say the stream you would like to play. You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
+            var message = 'ERROR_MESSAGE';
             this.response.speak(message).listen(message);
             this.emit(':responseReady');
         }
@@ -133,35 +154,30 @@ var stateHandlers = {
          *  All Intent Handlers for state : RESUME_DECISION_MODE
          */
         'LaunchRequest' : function () {
-            var message = 'You were listening to ' + this.attributes['stream'] + '.  Would you like to resume?';
-            var reprompt = 'You can say yes to resume or no to play anotehr stream';
+            var message = 'RESUME_MESSAGE1' + this.attributes['stream'] + 'RESUME_MESSAGE2';
+            var reprompt = 'RESUME_REPROMPT';
             this.response.speak(message).listen(reprompt);
             this.emit(':responseReady');
         },
         'AMAZON.YesIntent' : function () { controller.play.call(this) },
         'AMAZON.NoIntent' : function () { controller.reset.call(this) },
+        'AMAZON.PauseIntent' : function () { controller.stop.call(this) },
+        'AMAZON.StopIntent' : function () { controller.stop.call(this); var message = 'STOP_MESSAGE'; this.response.speak(message); this.emit(':responseReady'); },
+        'AMAZON.CancelIntent' : function () { controller.stop.call(this); var message = 'STOP_MESSAGE'; this.response.speak(message); this.emit(':responseReady'); },
+        'AMAZON.ResumeIntent' : function () { controller.play.call(this) },
+
         'AMAZON.HelpIntent' : function () {
-            var message = 'You were listening to ' + this.attributes['stream'] + '.  Would you like to resume?';
-            var reprompt = 'You can say yes to resume or no to play anotehr stream';
+            var message = 'RESUME_MESSAGE1' + this.attributes['stream'] + 'RESUME_MESSAGE2';
+            var reprompt = 'RESUME_REPROMPT';
             console.log("Executing resume mode intent handler for launch request");
             this.response.speak(message).listen(reprompt);
-            this.emit(':responseReady');
-        },
-        'AMAZON.StopIntent' : function () {
-            var message = 'Good bye.';
-            this.response.speak(message);
-            this.emit(':responseReady');
-        },
-        'AMAZON.CancelIntent' : function () {
-            var message = 'Good bye.';
-            this.response.speak(message);
             this.emit(':responseReady');
         },
         'SessionEndedRequest' : function () {
             // No session ended logic
         },
         'Unhandled' : function () {
-          var message = 'Sorry, I could not understand. Please say the stream you would like to play. You can say one of Bhajan Stream, Discourse Stream, Ameri Stream, Asia Stream, Afri Stream or Telugu Stream';
+          var message = 'ERROR_MESSAGE';
           this.response.speak(message).listen(message);
           this.emit(':responseReady');
         }
@@ -181,8 +197,8 @@ var controller = function () {
             this.attributes['enqueuedstreamName'] = null;
 
             if (canThrowCard.call(this)) {
-                var cardTitle = 'Playing ' + streamName;
-                var cardContent = 'Playing ' + streamName;
+                var cardTitle = 'CARD_TITLE_STRING' + streamName;
+                var cardContent = 'CARD_TITLE_STRING' + streamName;
                 this.response.cardRenderer(cardTitle, cardContent, null);
             }
 
