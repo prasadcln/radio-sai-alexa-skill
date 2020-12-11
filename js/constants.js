@@ -9,7 +9,7 @@ module.exports = Object.freeze({
     dynamoDBTableName : 'LongFormAudioSample',
 
     /*
-     *  States:
+     *  						:
      *  START_MODE : Welcome state when the audio list has not begun.
      *  PLAY_MODE :  When a playlist is being played. Does not imply only active play.
      *               It remains in the state as long as the playlist is not finished.
@@ -69,7 +69,7 @@ module.exports = Object.freeze({
     },
 
     languageStrings : {
-        'hi-IN': hiData,
-        'en-US': enData
+       'hi-IN': this.hiData,
+       'en-US': this.enData
     }
 });
