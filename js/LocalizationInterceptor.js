@@ -25,7 +25,7 @@ var LocalizationInterceptor = {
         const value = i18n.t(args[0], {
             returnObjects: true,
             postProcess: 'sprintf',
-            sprintf: values,
+            sprintf: values
         });
 
         // If an array is used then a random value is selected

@@ -18,8 +18,8 @@
     "i18next": "11.8.0",
     "i18next-sprintf-postprocessor": "0.2.2"
   },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/prasadcln/radio-sai-alexa-skill"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prasadcln/radio-sai-alexa-skill"
   }
 }
